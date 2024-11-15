@@ -1,0 +1,209 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Geo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+
+body {
+    font-family: 'Fraunces', sans-serif;
+    background: #DCD7C9;
+    margin: 0;
+    padding: 0;
+    color: #2C3639;
+}
+
+h1, h3 {
+    color: #3F4E4F;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #2C3639;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Geo';
+    color: #A27B5C;
+    font-size: 1.8em;
+    margin: 0;
+}
+.nav img{
+    height:60px;
+}
+
+.nav-container {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #A27B5C;
+}
+
+#org {
+    background-color: #A27B5C;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#org:hover {
+    background-color: #3F4E4F;
+}
+
+/* Form Styles */
+.form_h1 {
+    margin: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0.1, 0.1);
+    max-width: 500px;
+    height: max-content;
+    margin: 0 auto 30px auto;
+}
+
+.form_content{
+    margin:1em 0;
+}
+
+form label {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #3F4E4F;
+}
+
+form input[type="file"] {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #3F4E4F;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+}
+
+form button {
+    background-color: #A27B5C;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #3F4E4F;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #3F4E4F;
+    background-color: #FFFFFF;
+}
+
+table th {
+    background-color: #A27B5C;
+    color: #FFFFFF;
+}
+
+table tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+/* Back to Profile Link */
+.back_profile {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.back_profile a {
+    color: #A27B5C;
+    text-decoration: none; 
+    font-weight: bold;
+    border: 2px solid #A27B5C;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.back_profile a:hover {
+    background-color: #A27B5C;
+    color: #FFFFFF;
+}
+
+.box-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0.1, 0.1);
+    max-width: 500px;
+    height: max-content;
+    margin: 0 auto 30px auto;
+}
+
+/* Custom Alert Styles */
+.custom-alert {
+    background-color: #DCD7C9; /* Beige color */
+    color: #3F4E4F; /* Darker text for contrast */
+    border: 1px solid #A27B5C;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hide by default, show when needed */
+}
+
+.custom-alert.show {
+    display: block; /* Show the alert when needed */
+}
+
+.custom-alert .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: #A27B5C;
+    float: right;
+    cursor: pointer;
+}
+
+.custom-alert .close-btn:hover {
+    color: #2C3639;
+}

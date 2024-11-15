@@ -1,0 +1,135 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ffffff 50%,#c1946f 50%);
+    background-size: 200% 200%;
+    animation: gradientFlow 10s infinite alternate;
+    overflow-x: hidden;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #A27B5C;
+    margin-bottom: 20px;
+    text-shadow: 0px 1px 2px #00000091 ;
+}
+h1 {
+    font-size: 3rem; /* Increases the size of the text */
+    font-family: 'Arial', sans-serif; /* Sets a clean, modern font */
+    font-weight: bold; /* Makes the text bold */
+    color: #564130; /* A dark shade of blue for better readability */
+    text-align: center; /* Centers the text */
+    margin-bottom: 20px; /* Adds space below the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow for depth */
+}
+
+
+.process-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.process-image {
+    flex: 1;
+    max-width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.process-image img {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.process-description {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    width: 90%;
+    max-width: 600px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"],
+input[type="file"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: calc(100% - 22px);
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#fileDisplay, #result {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

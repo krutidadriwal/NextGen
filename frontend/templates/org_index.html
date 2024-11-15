@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='org_style.css') }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Organisation Details</title>
+</head>
+
+<body>
+  <div class="nav">
+    <h1>VERIFY
+        <img src="{{ url_for('static', filename='images/logoXdar.png') }}" alt="Logo">
+    </h1>
+    <div class="nav-container">
+      <a href="#">Our Team</a>
+      <a href="#">Foresight</a>
+      <a href="{{url_for('whyUs')}}">Why Us?</a>
+      <a href="{{ url_for('index') }}"> For Users</a> 
+    </div>
+  </div>
+  <div class="content">
+    <div class="login-bg">
+      <h2>Organizations, Meet Easiest KYC Yet</h2>
+      <h3>Experience a seamless and efficient KYC process with our intuitive solution, designed to simplify compliance and reduce onboarding time for organizations.</h3>
+      <div class="input-button"><a href="{{ url_for('org_register') }}">Add an Account</a></div> 
+      <div class="input-button"><a href="{{ url_for('org_login') }}">Login</a></div> 
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Metadata Extractor</title>
+</head>
+<body>
+    <h1>Upload a PDF to Extract Metadata</h1>
+    <form id="pdf-form">
+        <input type="file" id="fileInput" accept=".pdf" required>
+        <button type="submit">Upload PDF</button>
+    </form>
+
+    <!-- <h2>Extracted Metadata:</h2>
+    <pre id="metadata"></pre> -->
+    <h2>Extracted Text Content:</h2>
+    <pre id="textContent"></pre>
+    <!-- <h2>Generated Hash:</h2>
+<pre id="hash"></pre>
+    <h2>Digital Signature:</h2>
+    <pre id="signature"></pre> -->
+
+    <script>
+        // Function to handle file upload and metadata extraction
+        async function uploadPDFAndGetMetadata(file) {
+            const formData = new FormData();
+            formData.append('pdfFile', file);
+
+            try {
+                const response = await fetch('http://localhost:4000/upload-pdf', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to upload PDF.');
+                }
+
+                const result = await response.json();
+                console.log('Received metadata:', result);
+
+                // Display the metadata, text content, and signature on the frontend
+                // document.getElementById('metadata').textContent = JSON.stringify(result.metadata, null, 2);
+                document.getElementById('textContent').textContent = result.textContent;
+                // document.getElementById('hash').textContent = result.hash;
+                // document.getElementById('signature').textContent = result.signature;
+
+            } catch (error) {
+                console.error('Error uploading PDF:', error);
+                alert('Error uploading PDF. Check the console for details.');
+            }
+        }
+
+        // Event listener for form submission
+        document.getElementById('pdf-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert('Please select a file.');
+                return;
+            }
+
+            // Upload the file and get metadata
+            await uploadPDFAndGetMetadata(file);
+        });
+    </script>
+</body>
+</html>

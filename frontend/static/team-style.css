@@ -1,0 +1,96 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: #DCD7C9;
+    color: #2C3639;
+    overflow-x: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #A27B5C;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    background: rgba(60, 54, 57, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.parallax {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2C3639;
+}
+
+.parallax-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parallax-layer h1 {
+    z-index: 1;
+    color: #FFFFFF;
+    background: #3F4E4F;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Team Container Styles */
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+}
+
+.card {
+    background: #3F4E4F;
+    color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.card h2 {
+    margin: 0;
+    color: #A27B5C;
+    font-size: 1.5rem;
+}
+
+.card p {
+    margin-top: 10px;
+    color: #DCD7C9;
+    font-size: 1rem;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

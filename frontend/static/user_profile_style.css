@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+    font-family: 'Geo', sans-serif;
+    background: #DCD7C9;
+    margin: 0;
+    padding: 0;
+    color: #2C3639;
+}
+body a{
+    text-align: center; 
+}
+
+.cube-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensures it stays behind other elements */
+    overflow: hidden;
+}
+
+.cube {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #3F4E4F;
+    opacity: 0.7;
+    animation: float 10s infinite ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Create multiple cubes with different sizes, positions, and animation durations */
+.cube:nth-child(1) {
+    left: 10%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.cube:nth-child(2) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+.cube:nth-child(3) {
+    left: 40%;
+    animation-duration: 15s;
+    animation-delay: 2s;
+}
+
+.cube:nth-child(4) {
+    left: 55%;
+    animation-duration: 8s;
+    animation-delay: 4s;
+}
+
+.cube:nth-child(5) {
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 5s;
+}
+
+.cube:nth-child(6) {
+    left: 85%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+}
+
+/* Animation for the floating effect */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+
+
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #A27B5C;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+img {
+    height: 30px;
+}
+
+/* Navigation Bar */
+.nav {
+    background-color: #2C3639;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.nav-container {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav a:hover {
+    color: #A27B5C;
+}
+
+#org {
+    background-color: #A27B5C;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#org:hover {
+    background-color: #3F4E4F;
+}
+
+/* Content Styles */
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.wrapper {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%;
+    margin: 10px;
+    height: 70vh;
+}
+
+.wrapper-left {
+    background: #b59881;
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+}
+
+.wrapper-left h2 {
+    color: #3F4E4F;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.wrapper-left p {
+    color: #2C3639;
+    line-height: 1.6;
+    padding: 3em 3em;
+    text-align: justify;
+}
+
+/* Diagonal Strip Design for Wrapper Right */
+.wrapper-right {
+    background: #3F4E4F;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    height:100%
+}
+
+.wrapper-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(135deg, #A27B5C 25%, #2C3639 25%, #2C3639 50%, #A27B5C 50%, #A27B5C 75%, #2C3639 75%);
+    opacity: 0.2;
+    z-index: 1;
+    transform: rotate(0deg) translateX(-30%);
+    transform-origin: top left;
+}
+
+.wrapper-right h3 {
+    color: #FFFFFF;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.input-box {
+    margin-bottom: 15px;
+    z-index: 2;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.input-box a {
+    display: block;
+    background-color: #A27B5C;
+    color: #FFFFFF;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.input-box a:hover {
+    background-color: #2C3639;
+    color: #A27B5C;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper {
+        width: 90%;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav a {
+        margin: 5px 0;
+    }
+}
+
+/* Centered Logout Button */
+.logout-button {
+    display: block; /* Makes the button a block element */
+    margin: 0 auto; /* Centers the button horizontally */
+    width:50%;
+    text-align: center;
+    background: transparent;
+    color: #A27B5C;
+    border: 2px solid #A27B5C;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none; /* Removes underline if the button is a link */
+}
+
+.logout-button:hover {
+    background-color: #A27B5C;
+    color: #FFFFFF;
+}
+

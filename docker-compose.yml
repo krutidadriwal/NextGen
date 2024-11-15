@@ -1,0 +1,78 @@
+version: '3'
+services:
+  nextgen:
+    image: your-nextgen-image
+    build:
+      context: ./NextGen
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - hardhat
+    networks:
+      - my-network
+    volumes:
+      - ./NextGen:/app
+      - ./shared-config:/app/shared-config
+
+  hardhat:
+    image: your-hardhat-image
+    build:
+      context: ./hardhatProj
+      dockerfile: Dockerfile
+    volumes:
+      - ./hardhatProj:/app
+      - ./shared-config:/app/shared-config
+    command: sh -c "npx hardhat node & sleep 5 && npx hardhat run scripts/deploy.js --network localhost && tail -f /dev/null"
+    ports:
+      - "8545:8545"
+    networks:
+      - my-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8545"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - DATABASE_URL=sqlite:///user_data.db
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - nextgen
+      - app
+    networks:
+      - my-network
+    
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=production
+      - PROVIDER_URL=http://hardhat:8545
+    volumes:
+      - ./app:/app
+      - ./shared-config:/app/shared-config
+      - /app/node_modules
+    depends_on:
+      hardhat:
+        condition: service_healthy
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
